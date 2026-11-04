@@ -109,3 +109,4 @@ public class BookingConcurrencyTest {
         assertThat(finalTier.getAvailableCapacity()).isEqualTo(0);
     }
 }
+

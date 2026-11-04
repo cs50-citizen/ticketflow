@@ -70,3 +70,4 @@ resource "aws_cloudfront_distribution" "cdn" {
     Name = "${var.app_name}-cdn"
   }
 }
+

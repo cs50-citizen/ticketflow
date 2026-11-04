@@ -30,3 +30,4 @@ public interface TicketTierRepository extends JpaRepository<TicketTier, Long> {
            "WHERE t.id = :tierId")
     int releaseCapacityDirect(@Param("tierId") Long tierId, @Param("qty") int qty);
 }
+

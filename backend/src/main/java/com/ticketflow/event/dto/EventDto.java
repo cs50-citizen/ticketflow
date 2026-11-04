@@ -41,3 +41,4 @@ public class EventDto {
         private List<TicketTierResponse> ticketTiers;
     }
 }
+

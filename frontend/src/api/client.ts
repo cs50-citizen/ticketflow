@@ -57,10 +57,13 @@ export const api = {
   },
   orders: {
     create: async (eventId: number, ticketTierId: number, quantity: number): Promise<Order> => {
+      const idempotencyKey = 'book-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
       const res = await apiClient.post<ApiResponse<Order>>('/orders', {
         eventId,
         ticketTierId,
         quantity,
+      }, {
+        headers: { 'Idempotency-Key': idempotencyKey }
       });
       return res.data.data;
     },
@@ -68,6 +71,8 @@ export const api = {
       const res = await apiClient.post<ApiResponse<Order>>('/orders/pay', {
         orderNumber,
         paymentMethod: 'MOCK_CARD',
+      }, {
+        headers: { 'Idempotency-Key': 'pay-' + orderNumber }
       });
       return res.data.data;
     },

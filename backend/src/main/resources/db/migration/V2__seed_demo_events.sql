@@ -55,3 +55,4 @@ VALUES
 (3, 'Park Pass 4-Day', 195.00, 10000, 10000),
 (3, 'Brabham Grandstand', 485.00, 1500, 1500),
 (3, 'Paddock Club Hospitality', 1850.00, 200, 200);
+

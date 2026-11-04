@@ -12,3 +12,4 @@ output "cloudfront_domain_name" {
   description = "CloudFront CDN URL for Frontend SPA"
   value       = aws_cloudfront_distribution.cdn.domain_name
 }
+

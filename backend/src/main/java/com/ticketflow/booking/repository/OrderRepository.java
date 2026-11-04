@@ -21,3 +21,4 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("SELECT o FROM Order o WHERE o.status = :status AND o.expiresAt < :now")
     List<Order> findExpiredOrders(@Param("status") OrderStatus status, @Param("now") Instant now);
 }
+

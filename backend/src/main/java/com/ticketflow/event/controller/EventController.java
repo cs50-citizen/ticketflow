@@ -34,3 +34,4 @@ public class EventController {
         return ResponseEntity.ok(ApiResponse.ok(eventService.getEventById(id)));
     }
 }
+

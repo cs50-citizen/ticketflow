@@ -67,3 +67,4 @@ public class BookingDto {
         private String paymentMethod; // e.g. "MOCK_CARD", "STRIPE"
     }
 }
+

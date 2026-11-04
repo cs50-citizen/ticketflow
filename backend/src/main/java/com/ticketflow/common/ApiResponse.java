@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.slf4j.MDC;
 
 import java.time.Instant;
 
@@ -15,6 +16,7 @@ public class ApiResponse<T> {
     private boolean success;
     private String message;
     private T data;
+    private String traceId;
     @Builder.Default
     private Instant timestamp = Instant.now();
 
@@ -23,6 +25,7 @@ public class ApiResponse<T> {
                 .success(true)
                 .message("Operation successful")
                 .data(data)
+                .traceId(MDC.get("traceId"))
                 .timestamp(Instant.now())
                 .build();
     }
@@ -32,6 +35,7 @@ public class ApiResponse<T> {
                 .success(true)
                 .message(message)
                 .data(data)
+                .traceId(MDC.get("traceId"))
                 .timestamp(Instant.now())
                 .build();
     }
@@ -41,6 +45,7 @@ public class ApiResponse<T> {
                 .success(false)
                 .message(message)
                 .data(null)
+                .traceId(MDC.get("traceId"))
                 .timestamp(Instant.now())
                 .build();
     }
