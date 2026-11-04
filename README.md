@@ -15,6 +15,8 @@
 ## 🌟 Key Engineering Highlights
 
 - **Zero-Oversell Concurrency Engine**: Solves the race condition problem during high-volume flash ticketing surges using **atomic conditional database deductions** and **optimistic locking**, validated by multi-threaded integration stress tests.
+- **End-to-End API Idempotency**: Enforces `Idempotency-Key` headers on state-mutating booking & checkout operations, preventing duplicate charges and double reservations during network retries or accidental double-clicking.
+- **Distributed Request Tracing**: Injects unified `X-Trace-Id` correlation tokens into SLF4J MDC, application logs, and HTTP response headers for rapid microservice debugging.
 - **10-Minute Hold & Auto-Sweep**: Users reserve tickets with a 10-minute payment countdown window. Expired reservations are automatically swept and released back to available inventory via asynchronous scheduled routines.
 - **Stateless JWT Security**: Spring Security 6 with custom filters, role-based access control (`CUSTOMER`, `ADMIN`), and BCrypt password encryption.
 - **100% Infrastructure as Code (IaC)**: Modular Terraform scripts orchestrating AWS VPC, Application Load Balancers, ECS Fargate containers, Amazon RDS (PostgreSQL 16), and S3 + CloudFront CDN.
