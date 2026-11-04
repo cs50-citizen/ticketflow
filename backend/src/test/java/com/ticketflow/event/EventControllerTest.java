@@ -31,3 +31,4 @@ public class EventControllerTest {
                 .andExpect(header().exists("X-Trace-Id"));
     }
 }
+
